@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block contents %}
+<br>
+<div class="container" style="padding-top:100px;">
+    <div class="card" >
+        <div class="card-body">
+            <h5 class="card-title">{{details.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{details.pub_date}}</h6>
+            <p class="card-text">{{details.body}}</p>
+            <a href="{% url 'delete' details.id%}" class="card-link"> 삭제하기 </a>
+        </div>
+    </div>
+    <br>
+    <button type="button" class="btn btn-dark"><a href="{% url 'home' %}"  style="color:white;" > 홈으로 가기 </a></button>
+</div>
+
+{%endblock%}

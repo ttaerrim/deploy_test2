@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+<br>
+<div class="container" style="padding-top:100px;">
+    <h1 style="font-weight:600; color:darkslategray"> 새 글쓰기 </h1>
+    <br>
+    <form action="{% url 'create' %}" method="POST">
+        {% csrf_token%} 
+        <input class="form-control" type="text" name="title" placeholder="TITLE">
+        <br>
+        <div class="form-group">
+            <textarea class="form-control" name="body" rows="3" placeholder="CONTENT"></textarea>
+        </div>
+        <input class="btn btn-dark" type="submit" value="제출하기">
+        
+    </form>
+</div>
+
+{%endblock%}

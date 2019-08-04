@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block contents %}
+<div class="jumbotron" style="margin:0;padding-bottom:10">
+  <div class="container">
+    <h1 class="display-4" style="font-weight:600; color:darkslategrey"> Blog-Project </h1>
+    <p class="lead">LIKELION CRUD </p>
+    <button type="button" class="btn btn-dark"><a class ="not-active" href="{% url 'new' %}"  style="color:white;" > New Post </a></button>
+    <hr class="my-4">
+  </div>
+</div>
+<div class="container">
+  <br>
+    {% for blog in blogs.all %}
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'detail' blog.id %}" style="text-decoration: none;color: black;">{{blog.title}}</a></h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{blog.pub_date}}</h6>
+          <p class="card-text">{{blog.body}}</p>
+        </div>
+      </div>
+      <br>
+    {% endfor %}
+</div>
+{% endblock %}
